@@ -1,5 +1,6 @@
 package com.example.vuestagram.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +32,7 @@ public class User {
     @Column(name = "account", unique = true, nullable = false, length = 20) // 데이터타입은? 프로퍼티 설정할 때 String 으로 줬음
     private String account;
 
+    @JsonIgnore
     @Column(name = "password", nullable = false, length = 255)
     private String password;
 
@@ -43,6 +45,7 @@ public class User {
     @Column(name = "gender", nullable = false, length = 1)
     private String gender;
 
+    @JsonIgnore
     @Column(name = "refresh_token", length = 512)
     private String refreshToken;
 
